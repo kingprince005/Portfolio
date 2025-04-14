@@ -103,20 +103,20 @@ document.addEventListener('DOMContentLoaded', function() {
         strings: ['Full Stack Development', 'Web Development'],
         typeSpeed: 140,
         backSpeed: 80,
-        backDelay: 2000,
-        loop: true,
-        cursorChar: '|',
+    backDelay: 2000,
+    loop: true,
+    cursorChar: '|',
         showCursor: true,
         smartBackspace: true,
         startDelay: 1000,
         autoInsertCss: false,
         onInit: (self) => {
             setTimeout(() => {
-                const cursor = document.querySelector('.typed-cursor');
-                if (cursor) {
+        const cursor = document.querySelector('.typed-cursor');
+        if (cursor) {
                     cursor.style.display = 'inline-block';
                     cursor.style.position = 'relative';
-                    cursor.style.color = '#DC1F26';
+            cursor.style.color = '#DC1F26';
                     cursor.style.fontWeight = 'bold';
                     cursor.style.fontSize = '1.8rem';
                     cursor.style.animation = 'blink 1s infinite';
@@ -1278,7 +1278,7 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.opacity = '0';
         item.style.transform = 'scale(0.8) translateY(50px)';
     });
-});
+}); 
 
 // Contact Form Handling
 document.getElementById('contact-form').addEventListener('submit', function(event) {
@@ -1321,4 +1321,77 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
         submitBtn.disabled = false;
     });
-}); 
+});
+
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+const menuCloseBtn = document.querySelector('.menu-close-btn');
+const navItems = document.querySelectorAll('.nav-links a');
+
+// Function to toggle mobile menu
+function toggleMobileMenu() {
+    mobileMenuBtn.classList.toggle('active');
+    navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+}
+
+// Function to close mobile menu
+function closeMobileMenu() {
+    mobileMenuBtn.classList.remove('active');
+    navLinks.classList.remove('active');
+    document.body.classList.remove('menu-open');
+}
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+}
+
+if (menuCloseBtn) {
+    menuCloseBtn.addEventListener('click', closeMobileMenu);
+}
+
+// Close menu when clicking a link
+navItems.forEach(link => {
+    link.addEventListener('click', function() {
+        closeMobileMenu();
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    if (!event.target.closest('.mobile-menu-btn') && 
+        !event.target.closest('.nav-links') && 
+        navLinks.classList.contains('active')) {
+        closeMobileMenu();
+    }
+});
+
+// Handle active link highlighting based on scroll position
+function setActiveNavItem() {
+    const sections = document.querySelectorAll('section');
+    const scrollPosition = window.scrollY + 100; // Offset for better highlighting
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            // Remove active class from all links
+            navItems.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to the current section's link
+            const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+    });
+}
+
+// Listen for scroll events to update active nav item
+window.addEventListener('scroll', setActiveNavItem);
+window.addEventListener('load', setActiveNavItem); 
