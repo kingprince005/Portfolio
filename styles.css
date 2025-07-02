@@ -205,6 +205,51 @@ nav {
     }
 }
 
+/* Mobile Hero Section Styles */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px; /* Increased padding to account for mobile nav */
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero-text {
+        order: 2;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero-image {
+        order: 1;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-top: 1.5rem;
+    }
+
+    .cta-button {
+        margin: 1.5rem auto;
+        display: inline-block;
+    }
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -354,6 +399,7 @@ canvas.particles-js-canvas-el {
     display: inline-block;
     position: relative;
     margin-left: 5px;
+    bottom: 0.3rem;
 }
 
 .typed-text {
@@ -852,6 +898,7 @@ section:not(:last-child) {
     margin-bottom: 1.5rem;
     position: relative;
     padding-left: 1rem;
+    text-align: justify;
 }
 
 .about-text p::before {
@@ -867,7 +914,7 @@ section:not(:last-child) {
 
 .contact-details {
     margin-top: 2rem;
-    padding: 1.5rem;
+    padding: 0rem;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1558,6 +1605,13 @@ section:not(:last-child) {
     pointer-events: none;
 }
 
+.cgpa {
+    color: rgb(30,58,138);
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    font-size: large;
+}
+
 /* Floating educational icons */
 .education::after {
     content: '🎓';
@@ -1747,10 +1801,10 @@ section:not(:last-child) {
     font-weight: 600;
 }
 
-.education-item .percentage {
+.education-item .percentage  {
     color: #007BFF;
     font-size: 1.2rem;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 0.5rem;
 }
 
@@ -2971,7 +3025,7 @@ section:not(:last-child) {
     
     .hero-text {
         width: 100%;
-        text-align: center;
+        text-align: left;
         padding: 0;
     }
     
@@ -2982,6 +3036,7 @@ section:not(:last-child) {
     
     .hero-text h2 {
         font-size: 1.3rem;
+        font-weight: 700;
     }
     
     .role {
@@ -3003,7 +3058,7 @@ section:not(:last-child) {
     }
     
     .social-links {
-        justify-content: center;
+        justify-content: left;
         margin-top: 20px;
     }
     
@@ -3012,6 +3067,7 @@ section:not(:last-child) {
         display: block;
         max-width: 200px;
         text-align: center;
+        margin-left: 0;
     }
 }
 
@@ -3094,7 +3150,7 @@ section:not(:last-child) {
     }
     
     .hero-text h2 {
-        font-size: 1.1rem;
+        font-size: 1.5rem;
     }
     
     .role {
@@ -3689,6 +3745,7 @@ body.menu-open {
     .about-name {
         font-size: 1.5rem !important;
         margin-bottom: 5px !important;
+        margin-top: -18px;
         text-align: center !important;
         width: 100% !important;
     }
@@ -3701,7 +3758,9 @@ body.menu-open {
     }
     
     .about-text p {
-        text-align: center !important;
+        text-align: left ;
+        text-align: justify;
+        text-justify: inter-word;
         font-size: 0.9rem !important;
         line-height: 1.4 !important;
         padding: 0 10px !important;
@@ -3832,7 +3891,6 @@ body.menu-open {
     
     .about-role {
         font-size: 1.2rem;
-        margin: 15px 0;
         text-align: center;
         width: 100%;
         position: relative;
