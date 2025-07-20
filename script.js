@@ -100,7 +100,7 @@ particlesJS('particles-js', {
 let typed;
 document.addEventListener('DOMContentLoaded', function() {
     const options = {
-        strings: ['Full Stack Development', 'Web Development'],
+        strings: ['Frontend Development', 'Web Development'],
         typeSpeed: 140,
         backSpeed: 80,
     backDelay: 2000,
